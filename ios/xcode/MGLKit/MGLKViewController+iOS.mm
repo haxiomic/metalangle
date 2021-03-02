@@ -36,27 +36,35 @@
 
 - (void)pause
 {
-#if DEBUG
-    NSLog(@"MGLKViewController pause");
-#endif
+    if (_isPaused)
+    {
+        return;
+    }
 
-    _isPaused = YES;
+    #if DEBUG
+        NSLog(@"MGLKViewController pause");
+    #endif
 
     if (_displayLink)
     {
         [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
         _displayLink = nil;
     }
+
+    _isPaused = YES;
 }
 
 - (void)resume
 {
+    if (!_isPaused)
+    {
+        return;
+    }
+
     [self pause];
 #if DEBUG
     NSLog(@"MGLKViewController resume");
 #endif
-
-    _isPaused = NO;
 
     if (!_glView)
     {
@@ -77,4 +85,6 @@
     }
 
     [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+
+    _isPaused = NO;
 }

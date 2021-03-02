@@ -111,11 +111,14 @@ static CVReturn CVFrameDisplayCallback(CVDisplayLinkRef displayLink,
 
 - (void)pause
 {
+    if (_isPaused)
+    {
+        return;
+    }
+
 #if DEBUG
     NSLog(@"MGLKViewController pause");
 #endif
-
-    _isPaused = YES;
 
     if (_displayLink)
     {
@@ -126,16 +129,21 @@ static CVReturn CVFrameDisplayCallback(CVDisplayLinkRef displayLink,
         [_displayTimer invalidate];
         _displayTimer = nil;
     }
+
+    _isPaused = YES;
 }
 
 - (void)resume
 {
+    if (!_isPaused)
+    {
+        return;
+    }
+
     [self pause];
 #if DEBUG
     NSLog(@"MGLKViewController resume");
 #endif
-
-    _isPaused = NO;
 
     if (!_glView)
     {
@@ -198,4 +206,6 @@ static CVReturn CVFrameDisplayCallback(CVDisplayLinkRef displayLink,
         [[NSRunLoop currentRunLoop] addTimer:_displayTimer forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] addTimer:_displayTimer forMode:NSModalPanelRunLoopMode];
     }
+
+    _isPaused = NO;
 }
