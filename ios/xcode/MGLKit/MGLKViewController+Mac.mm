@@ -27,13 +27,17 @@
 
 - (void)deallocImpl
 {
+#if DEBUG
     NSLog(@"MGLKViewController deallocImpl");
+#endif
     [self releaseTimer];
 }
 
 - (void)viewDidMoveToWindow
 {
+#if DEBUG
     NSLog(@"MGLKViewController viewDidMoveToWindow");
+#endif
     if (self.view.window)
     {
         // Obtain current window's screen refresh rate.
@@ -76,7 +80,9 @@
 
 - (void)windowWillClose:(NSNotification *)notification
 {
+#if DEBUG
     NSLog(@"MGLKViewController windowWillClose:");
+#endif
     [self releaseTimer];
 }
 
@@ -105,7 +111,9 @@ static CVReturn CVFrameDisplayCallback(CVDisplayLinkRef displayLink,
 
 - (void)pause
 {
+#if DEBUG
     NSLog(@"MGLKViewController pause");
+#endif
 
     _isPaused = YES;
 
@@ -123,7 +131,9 @@ static CVReturn CVFrameDisplayCallback(CVDisplayLinkRef displayLink,
 - (void)resume
 {
     [self pause];
+#if DEBUG
     NSLog(@"MGLKViewController resume");
+#endif
 
     _isPaused = NO;
 

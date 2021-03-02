@@ -10,7 +10,9 @@
 
 - (void)viewDidLoad
 {
+#if DEBUG
     NSLog(@"MGLKViewController viewDidLoad");
+#endif
     [super viewDidLoad];
 }
 
@@ -34,7 +36,9 @@
 
 - (void)pause
 {
+#if DEBUG
     NSLog(@"MGLKViewController pause");
+#endif
 
     _isPaused = YES;
 
@@ -48,7 +52,9 @@
 - (void)resume
 {
     [self pause];
+#if DEBUG
     NSLog(@"MGLKViewController resume");
+#endif
 
     _isPaused = NO;
 
