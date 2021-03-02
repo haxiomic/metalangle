@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -12679,6 +12679,7 @@
 					"EGL_EGL_PROTOTYPES=1",
 					GL_GLEXT_PROTOTYPES,
 					EGL_EGLEXT_PROTOTYPES,
+					DEBUG,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -13156,6 +13157,7 @@
 					"EGL_EGL_PROTOTYPES=1",
 					GL_GLEXT_PROTOTYPES,
 					EGL_EGLEXT_PROTOTYPES,
+					DEBUG,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -14970,6 +14972,7 @@
 					"EGL_EGL_PROTOTYPES=1",
 					GL_GLEXT_PROTOTYPES,
 					EGL_EGLEXT_PROTOTYPES,
+					DEBUG,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
@@ -15408,6 +15411,7 @@
 					"EGL_EGL_PROTOTYPES=1",
 					GL_GLEXT_PROTOTYPES,
 					EGL_EGLEXT_PROTOTYPES,
+					DEBUG,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
